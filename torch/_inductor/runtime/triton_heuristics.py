@@ -3211,11 +3211,7 @@ def _reduction_configs(
         register_intensive=register_intensive,
     )
 
-    outer_config = make_config(64, 8, register_intensive=register_intensive)
-    # TODO (paulzhan): Test heuristic on AMD and internal testing
-    # for correctness
-    if not torch.version.hip:
-        outer_config = outer_config_opt()
+    outer_config = outer_config_opt()
 
     configs = []
 
